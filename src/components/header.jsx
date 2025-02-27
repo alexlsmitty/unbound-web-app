@@ -5,47 +5,65 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
-import Logo from '../assets/logo.svg';
+import Logo from '../assets/logo.svg'; // Adjust path if needed
+import { width } from '@mui/system';
 
 function Header() {
   return (
-    <AppBar 
-      position="static"
-      // Using sx prop to override styles easily
-      sx={{ 
-        backgroundColor: '#6A1B9A', 
-        boxShadow: 'none',         
+    <AppBar
+      position="sticky"
+      sx={{
+        maxWidth: '99%',
+        // Purple background
+        backgroundColor: '#6A1B9A',
+        // Giving it some breathing room so it looks "floating"
+        margin: '8px',
+        // Round the corners
+        borderRadius: '24px',
+        // A subtle shadow
+        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)',
       }}
     >
-      <Toolbar>
-        {/* Left side: Logo + Title */}
-        <Box 
-          sx={{ 
-            display: 'flex', 
-            alignItems: 'center', 
-            flexGrow: 1 
+      <Toolbar sx={{ minHeight: 64 }}>
+        {/* Left side: Clickable logo + title */}
+        <Link
+          to="/"
+          style={{
+            textDecoration: 'none',
+            color: 'inherit', 
+            // relying on MUI's color, so no text color override needed
+            flexGrow: 1,
           }}
         >
-          {/* Logo */}
-          <img 
-            src={Logo} 
-            alt="Logo" 
-            style={{ width: 40, height: 40, marginRight: 8 }} 
-          />
-          {/* Title */}
-          <Typography 
-            variant="h6" 
-            component="div"
-            sx={{ 
-              fontWeight: 'bold', 
-              color: '#fff', 
-              // You could adjust letterSpacing, etc. if you want
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              // Simple hover animation: fade
+              transition: 'opacity 0.3s ease-in-out',
+              '&:hover': {
+                opacity: 0.8,
+              },
             }}
           >
-            Unbound
-          </Typography>
-        </Box>
-        
+            <img
+              src={Logo}
+              alt="Logo"
+              style={{ width: 40, height: 40, marginRight: 8 }}
+            />
+            <Typography
+              variant="h6"
+              component="div"
+              sx={{
+                fontWeight: 'bold',
+                color: '#fff',
+              }}
+            >
+              Unbound
+            </Typography>
+          </Box>
+        </Link>
+
         {/* Right side: Buttons */}
         <Box sx={{ display: 'flex', gap: 2 }}>
           <Button
@@ -53,19 +71,35 @@ function Header() {
             component={Link}
             to="/exercises"
             sx={{
-              backgroundColor: '#F48FB1', // Pink
+              backgroundColor: '#F48FB1', 
               color: '#000',
-              borderRadius: '24px',       // "pill" shape
-              textTransform: 'none',      // keep normal text
+              borderRadius: '24px',
+              textTransform: 'none',
               fontWeight: 'bold',
               '&:hover': {
-                backgroundColor: '#F06292', // darker pink on hover
+                backgroundColor: '#F06292',
               },
             }}
           >
             exercises
           </Button>
-
+          <Button
+            variant="contained"
+            component={Link}
+            to="/blog"
+            sx={{
+              backgroundColor: '#F48FB1', 
+              color: '#000',
+              borderRadius: '24px',
+              textTransform: 'none',
+              fontWeight: 'bold',
+              '&:hover': {
+                backgroundColor: '#F06292',
+              },
+            }}
+          >
+            blog
+          </Button>
           <Button
             variant="contained"
             component={Link}
@@ -83,7 +117,6 @@ function Header() {
           >
             habits
           </Button>
-
           <Button
             variant="contained"
             component={Link}

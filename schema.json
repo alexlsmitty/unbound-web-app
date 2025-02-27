@@ -1,0 +1,223 @@
+{
+    "name": "Blog Post",
+    "description": "A blog post used for describing addiction-avoidance techniques, and other content our users find interesting.",
+    "displayField": "title",
+    "fields": [
+      {
+        "id": "title",
+        "name": "Title",
+        "type": "Symbol",
+        "localized": true,
+        "required": true,
+        "validations": [
+          {
+            "unique": true
+          }
+        ],
+        "disabled": false,
+        "omitted": false
+      },
+      {
+        "id": "slug",
+        "name": "Slug",
+        "type": "Symbol",
+        "localized": false,
+        "required": true,
+        "validations": [
+          {
+            "unique": true
+          }
+        ],
+        "disabled": false,
+        "omitted": false
+      },
+      {
+        "id": "publishDate",
+        "name": "Publish Date.",
+        "type": "Date",
+        "localized": false,
+        "required": false,
+        "validations": [],
+        "defaultValue": {
+          "en-US": "2025-02-28"
+        },
+        "disabled": false,
+        "omitted": false
+      },
+      {
+        "id": "summaryexcerpt",
+        "name": "Summary/Excerpt",
+        "type": "RichText",
+        "localized": true,
+        "required": false,
+        "validations": [
+          {
+            "enabledMarks": [
+              "italic",
+              "bold",
+              "underline"
+            ],
+            "message": "Only italic, bold, and underline marks are allowed"
+          },
+          {
+            "enabledNodeTypes": [
+              "heading-1",
+              "heading-6",
+              "heading-5",
+              "heading-4",
+              "heading-3",
+              "heading-2"
+            ],
+            "message": "Only heading 1, heading 6, heading 5, heading 4, heading 3, and heading 2 nodes are allowed"
+          },
+          {
+            "nodes": {}
+          }
+        ],
+        "disabled": false,
+        "omitted": false
+      },
+      {
+        "id": "bodyContent",
+        "name": "Body Content",
+        "type": "RichText",
+        "localized": true,
+        "required": false,
+        "validations": [
+          {
+            "enabledMarks": [
+              "bold",
+              "italic",
+              "underline",
+              "code",
+              "superscript",
+              "subscript",
+              "strikethrough"
+            ],
+            "message": "Only bold, italic, underline, code, superscript, subscript, and strikethrough marks are allowed"
+          },
+          {
+            "enabledNodeTypes": [
+              "heading-1",
+              "heading-2",
+              "heading-3",
+              "heading-4",
+              "heading-5",
+              "heading-6",
+              "ordered-list",
+              "unordered-list",
+              "hr",
+              "blockquote",
+              "embedded-entry-block",
+              "embedded-asset-block",
+              "table",
+              "asset-hyperlink",
+              "embedded-entry-inline",
+              "entry-hyperlink",
+              "hyperlink"
+            ],
+            "message": "Only heading 1, heading 2, heading 3, heading 4, heading 5, heading 6, ordered list, unordered list, horizontal rule, quote, block entry, asset, table, link to asset, inline entry, link to entry, and link to Url nodes are allowed"
+          },
+          {
+            "nodes": {}
+          }
+        ],
+        "disabled": false,
+        "omitted": false
+      },
+      {
+        "id": "featuredImage",
+        "name": "Featured Image",
+        "type": "Link",
+        "localized": false,
+        "required": true,
+        "validations": [],
+        "disabled": false,
+        "omitted": false,
+        "linkType": "Asset"
+      },
+      {
+        "id": "categories",
+        "name": "Categories",
+        "type": "Array",
+        "localized": true,
+        "required": true,
+        "validations": [],
+        "disabled": false,
+        "omitted": false,
+        "items": {
+          "type": "Symbol",
+          "validations": [
+            {
+              "in": [
+                "Addiction-Recovery",
+                "Habit-Breaking",
+                "Psychology",
+                "Self-Help",
+                "Self-Improvement Tools",
+                "Website News"
+              ],
+              "message": "Please select a category that is already existing (Addiction-Recovery, Habit-Breaking, Psychology, Self-Help, Self-Improvement Tools, and Website News)"
+            }
+          ]
+        }
+      },
+      {
+        "id": "callToAction",
+        "name": "Call to Action",
+        "type": "Symbol",
+        "localized": true,
+        "required": false,
+        "validations": [],
+        "disabled": false,
+        "omitted": false
+      }
+    ],
+    "sys": {
+      "space": {
+        "sys": {
+          "type": "Link",
+          "linkType": "Space",
+          "id": "sm61punf1enz"
+        }
+      },
+      "id": "blogPost",
+      "type": "ContentType",
+      "createdAt": "2025-02-26T18:35:20.041Z",
+      "updatedAt": "2025-02-26T18:59:14.223Z",
+      "environment": {
+        "sys": {
+          "id": "master",
+          "type": "Link",
+          "linkType": "Environment"
+        }
+      },
+      "publishedVersion": 9,
+      "publishedAt": "2025-02-26T18:59:14.223Z",
+      "firstPublishedAt": "2025-02-26T18:35:20.433Z",
+      "createdBy": {
+        "sys": {
+          "type": "Link",
+          "linkType": "User",
+          "id": "5UIMcqwux6UHchX8NIA7ty"
+        }
+      },
+      "updatedBy": {
+        "sys": {
+          "type": "Link",
+          "linkType": "User",
+          "id": "5UIMcqwux6UHchX8NIA7ty"
+        }
+      },
+      "publishedCounter": 5,
+      "version": 10,
+      "publishedBy": {
+        "sys": {
+          "type": "Link",
+          "linkType": "User",
+          "id": "5UIMcqwux6UHchX8NIA7ty"
+        }
+      },
+      "urn": "crn:contentful:::content:spaces/sm61punf1enz/environments/master/content_types/blogPost"
+    }
+  }
