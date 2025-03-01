@@ -1,5 +1,6 @@
 import React from 'react';
-import { Container, Box, Typography, Button, Grid, Paper } from '@mui/material';
+import { Container, Box, Typography, Button, Paper } from '@mui/material';
+import Grid2 from '@mui/material/Unstable_Grid2';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
@@ -102,10 +103,9 @@ function Intro() {
         <Typography variant="subtitle1" align="center" color="textSecondary" paragraph>
           Everything you need to stay motivated and on track.
         </Typography>
-        
-        <Grid container spacing={4}>
+        <Grid2 container spacing={4}>
           {features.map((feature, index) => (
-            <Grid item xs={12} md={4} key={index}>
+            <Grid2 xs={12} md={4} key={index}>
               <Paper
                 component={motion.div}
                 initial="hidden"
@@ -113,7 +113,6 @@ function Intro() {
                 variants={featureVariants}
                 elevation={3}
                 // Wrap the Paper in a Link by using the component prop.
-                component={Link}
                 to={feature.route}
                 style={{ textDecoration: 'none' }}
                 sx={{ 
@@ -136,19 +135,19 @@ function Intro() {
                   },
                 }}
               >
-                <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mb: 2 }}>
-                  {feature.icon}
-                  <Typography variant="h6" component="div">
-                    {feature.title}
+                  <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mb: 2 }}>
+                    {feature.icon}
+                    <Typography variant="h6" component="div">
+                      {feature.title}
+                    </Typography>
+                  </Box>
+                  <Typography variant="body2">
+                    {feature.description}
                   </Typography>
-                </Box>
-                <Typography variant="body2">
-                  {feature.description}
-                </Typography>
-              </Paper>
-            </Grid>
+                </Paper>
+            </Grid2>
           ))}
-        </Grid>
+        </Grid2>
       </Box>
     </Container>
   );
